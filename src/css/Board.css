@@ -1,0 +1,49 @@
+.Board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    border: 1px solid rgb(156, 156, 156);
+    width: max-content;
+    height: 100%;
+}
+
+.Row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+.Row::before{
+    content: attr(data-loc);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: -50px;
+    top: calc((var(--cell-size) / 2) - 5px);
+    align-items: center;
+    width: 50px;
+
+    font-size: var(--label-font-size);
+    font-weight: bold;
+    font-family: 'Aptos BOLD';
+}
+
+.Row:last-child .Cell::before{
+    position: absolute;
+    content: attr(data-label);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--cell-size);
+    left:0;
+    bottom: -40px;
+
+    
+    font-size: var(--label-font-size);
+    font-weight: bold;
+    font-family: 'Aptos BOLD';
+    text-transform: uppercase;
+
+}
