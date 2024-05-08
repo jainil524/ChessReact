@@ -1,5 +1,4 @@
-
-.Cell{
+.Cell {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,28 +10,30 @@
     position: relative;
 }
 
-.Row:nth-child(odd) .Cell:nth-child(even){
+.Row:nth-child(odd) .Cell:nth-child(even) {
     background-color: var(--black-cell-color);
 }
 
-.Row:nth-child(even) .Cell:nth-child(odd){
+.Row:nth-child(even) .Cell:nth-child(odd) {
     background-color: var(--black-cell-color);
-}   
-.Cell:has(img.selected){
+}
+
+.Cell:has(img.selected) {
     background-color: #48ff82f5 !important;
 }
 
-.Cell.canplace{
+.Cell.canplace {
     background-color: #00ff4420 !important;
 }
 
-.Cell.canplace.canattack{
+.Cell.canplace.canattack {
     background-color: #ff000023 !important;
 }
 
-.Cell img{
+.Cell img {
     width: 70%;
     height: 70%;
     object-fit: contain;
     -webkit-user-drag: none;
+    user-select: none;
 }

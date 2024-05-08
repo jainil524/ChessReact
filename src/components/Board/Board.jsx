@@ -48,9 +48,9 @@ function Board() {
   ];
 
   const isCheck = (dest) => {
-    console.log(dest);
     AvailableMove(dest);
-    if(document.querySelector(`.Cell img.canattack[alt='${gameState}_king']`) !== null) {
+
+    if (document.querySelector(`.Cell.canattack img[alt='${gameState === 0 ? 1 : 0}_king']`) !== null) {
       alert("Check");
     }
   }
@@ -68,7 +68,6 @@ function Board() {
 
   // Handle the move of the piece from the selected cell to the destination cell
   const handleMove = (selectedPiece, destination) => {
-
     // if the destination cell is not a valid cell to place the piece, return
     if (destination?.classList.contains("canplace") == false) {
       selectedPiece?.querySelector("img").classList.remove('selected');
@@ -81,31 +80,27 @@ function Board() {
     if (destination !== null) {
       setTimeout(() => {
         if (destination.childElementCount > 0 && destination.querySelector("img").getAttribute("alt").split("_")[0] != gameState) {
-
           destination.querySelector("img").remove();
-          console.log("Piece Captured", destination, selectedPiece, destination.querySelector("img"));
-
+          // console.log("Piece Captured", destination, selectedPiece, destination.querySelector("img"));
         }
         destination.appendChild(selectedPiece.querySelector("img"));
+        isCheck(destination);
       }, 0);
       selectedPiece.querySelector("img").classList.remove('selected');
-
     }
 
-    isCheck(destination);
 
     if (selectedPiece !== null && destination !== null) {
       setSelectedPiece(null);
       setDestination(null);
       setGameState(gameState === 0 ? 1 : 0)
-      document.querySelectorAll('.Cell').forEach(cell => cell.classList.remove('canplace'));
 
+      document.querySelectorAll('.Cell').forEach(cell => cell.classList.remove('canplace'));
     }
   }
 
   // call the handleMove function when the selectedPiece or destination changes
   useEffect(() => {
-
     // if the turn is not of the selected piece, return
     if (selectedPiece !== null && gameState != selectedPiece?.querySelector("img").getAttribute("alt").split("_")[0]) {
       console.log("Not your turn");
@@ -115,9 +110,7 @@ function Board() {
     if (selectedPiece !== null && destination === null) {
       selectedPiece?.querySelector("img").classList.add('selected');
       document.querySelectorAll('.Cell').forEach(cell => cell.classList.remove('canplace'));
-
       AvailableMove(selectedPiece);
-
     }
 
     if (selectedPiece !== null && destination !== null) {
