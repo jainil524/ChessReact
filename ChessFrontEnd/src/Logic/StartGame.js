@@ -9,7 +9,6 @@ let socketURL = "https://chess-react-backend.vercel.app"
 // Establish WebSocket connection
 const io = socketIOClient(socketURL, {
     transports: ['websocket', 'polling', 'flashsocket'],
-    path: '/SERVERPATH',
     forceNew: true,
     reconnectionAttempts: 3,
     timeout: 2000,
