@@ -1,7 +1,6 @@
 export default function AvailableMove(piece) {
     let row = piece.getAttribute("data-loc").split("")[1];
     let col = piece.getAttribute("data-loc").split("")[0];
-
     let [piecetype, piecename] = piece.querySelector("img").getAttribute("alt").split("_");
 
     switch (piecename) {
@@ -9,19 +8,19 @@ export default function AvailableMove(piece) {
             Pawn(piecetype, col, row);
             break;
         case "horse":
-            Horse(piecetype,col, row);
+            Horse(piecetype, col, row);
             break;
         case "queen":
-            Queen(piecetype,col, row);
+            Queen(piecetype, col, row);
             break;
         case "elephant":
-            Elephant(piecetype,col, row);
+            Elephant(piecetype, col, row);
             break;
         case "cemal":
-            Cemal(piecetype,col, row);
+            Cemal(piecetype, col, row);
             break;
         case "king":
-            King(piecetype,col, row);
+            King(piecetype, col, row);
             break;
         default:
             break;
@@ -64,7 +63,7 @@ function Pawn(piecetype, col, row) {
     }
 }
 
-function Horse(piecetype,col, row) {
+function Horse(piecetype, col, row) {
     let possibleMoves = [
         [2, 1], [2, -1], [-2, 1], [-2, -1],
         [1, 2], [1, -2], [-1, 2], [-1, -2]
@@ -87,7 +86,7 @@ function Horse(piecetype,col, row) {
     });
 }
 
-function Queen(piecetype,col, row) {
+function Queen(piecetype, col, row) {
     let directions = [
         [1, 1], [1, -1], [-1, 1], [-1, -1],
         [1, 0], [-1, 0], [0, 1], [0, -1]
@@ -114,7 +113,7 @@ function Queen(piecetype,col, row) {
     });
 }
 
-function Elephant(piecetype,col, row) {
+function Elephant(piecetype, col, row) {
     let directions = [
         [1, 0], [-1, 0], [0, 1], [0, -1]
     ];
@@ -141,7 +140,7 @@ function Elephant(piecetype,col, row) {
     });
 }
 
-function Cemal(piecetype,col, row) {
+function Cemal(piecetype, col, row) {
     let directions = [
         [1, 1], [1, -1], [-1, 1], [-1, -1]
     ];
@@ -168,7 +167,7 @@ function Cemal(piecetype,col, row) {
     });
 }
 
-function King(piecetype,col, row) {
+function King(piecetype, col, row) {
     let directions = [
         [1, 1], [1, -1], [-1, 1], [-1, -1],
         [1, 0], [-1, 0], [0, 1], [0, -1]

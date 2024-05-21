@@ -76,7 +76,6 @@ function Board() {
     if (destination !== null) {
       setTimeout(() => {
         if (destination.childElementCount > 0 && destination.querySelector("img").getAttribute("alt").split("_")[0] != gameState) {
-
           destination.querySelector("img").remove();
 
         }
@@ -86,7 +85,6 @@ function Board() {
 
       }, 0);
       selectedPiece.querySelector("img").classList.remove('selected');
-
     }
 
 
@@ -95,7 +93,6 @@ function Board() {
       setDestination(null);
       setGameState(gameState === 0 ? 1 : 0)
       document.querySelectorAll('.Cell').forEach(cell => cell.classList.remove('canplace', 'canattack'));
-
     }
   }
 
@@ -117,7 +114,6 @@ function Board() {
       selectedPiece?.querySelector("img").classList.add('selected');
       document.querySelectorAll('.Cell').forEach(cell => cell.classList.remove('canplace'));
       AvailableMove(selectedPiece);
-
     }
 
     if (selectedPiece !== null && destination !== null) {
