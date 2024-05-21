@@ -1,7 +1,16 @@
 import socketIOClient from 'socket.io-client';
+// import dotenv from "dotenv";
 
-const io = socketIOClient('http://localhost:3000');
+// dotenv.config();
+// 
+// process.env.NODE_ENV = 'development';
+// Access environment variables after they have been loaded
+const socketURL = import.meta.env.VITE_SOCKET_URL;
 
+// Establish WebSocket connection
+const io = socketIOClient(socketURL);
+
+// Event listeners for socket events
 io.on('connect', () => {
     console.log('Connected to server');
 });
@@ -54,9 +63,6 @@ const JoinRoom = (roomId, userID) => {
 const Move = (roomID, userID, move) => {
     io.emit('domove', roomID, userID, move);
     console.log('Move', move);
-
-}
-
-
+};
 
 export { FetchAllRooms, CreateRoom, JoinRoom, Move, io };

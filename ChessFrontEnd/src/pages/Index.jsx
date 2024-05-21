@@ -1,7 +1,11 @@
 import React from 'react'
-import Header from '../components/Header/Header'
 import { Outlet, Link } from 'react-router-dom'
+
+import GraphicsImage from "/Graphic_1.jpeg"
+import Header from '../components/Header/Header'
+
 import '../css/mainpage.css'
+
 
 function Index() {
     return (
@@ -17,7 +21,7 @@ function Index() {
                         </Link>
                     </div>
                     <div className="intro-graphics">
-                        <img src="/Graphic_1.jpeg" alt="Chess Graphic" />
+                        <img src={GraphicsImage} alt="Chess Graphic" />
                     </div>
                 </section>
             </main>
