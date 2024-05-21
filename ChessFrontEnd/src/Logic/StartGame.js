@@ -3,10 +3,7 @@ import socketIOClient from 'socket.io-client';
 
 
 const envWeAreIn = import.meta.env.VITE_ENV;
-let socketURL = import.meta.env.VITE_DEVS_SOCKET_URL;
-if (envWeAreIn == 'PROD') {
-    socketURL = import.meta.env.VITE_PROD_SOCKET_URL;
-}
+let socketURL = import.meta.env.VITE_PROD_SOCKET_URL
 
 
 // Establish WebSocket connection
