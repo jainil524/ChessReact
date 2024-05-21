@@ -1,9 +1,19 @@
 const { log } = require('console');
 const express = require('express');
+const cors = require('cors');
+
+
 const app = express();
+
+
 const { v4: uuidv4 } = require('uuid');
 // const dbConnect = require('./DBConnect');
 const server = require('http').Server(app);
+
+app.use(cors({
+    origin: "*",
+}));
+
 const io = require('socket.io')(server, {
     cors: {
         origin: "*",
