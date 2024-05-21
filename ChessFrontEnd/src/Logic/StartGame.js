@@ -3,7 +3,7 @@ import socketIOClient from 'socket.io-client';
 
 
 const envWeAreIn = import.meta.env.VITE_ENV;
-let socketURL = "https://chess-react-frontend.vercel.app"
+let socketURL = "https://chess-react-backend.vercel.app"
 
 
 // Establish WebSocket connection
