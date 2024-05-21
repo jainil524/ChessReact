@@ -2,8 +2,6 @@ export default function AvailableMove(piece) {
     let row = piece.getAttribute("data-loc").split("")[1];
     let col = piece.getAttribute("data-loc").split("")[0];
 
-    
-    console.log("Is from normal",piece);
     let [piecetype, piecename] = piece.querySelector("img").getAttribute("alt").split("_");
 
     switch (piecename) {
@@ -187,7 +185,6 @@ function King(piecetype,col, row) {
             } else if (isOpponentPiece(nextCell, piecetype)) {
                 nextCell.classList.add("canplace");
                 nextCell.classList.add("canattack");
-
             }
         }
     });

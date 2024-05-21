@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-    border: 1px solid rgb(156, 156, 156);
+    border:var(--border);
     width: max-content;
     height: 100%;
 }
@@ -20,7 +20,7 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    left: -50px;
+    left: var(--label-number-position-left);
     top: calc((var(--cell-size) / 2) - 5px);
     align-items: center;
     width: 50px;
@@ -38,10 +38,10 @@
     align-items: center;
     width: var(--cell-size);
     left:0;
-    bottom: -40px;
+    bottom: var(--label-alphabet-position-bottom);
 
     
-    font-size: var(--label-font-size);
+    font-size:  calc(var(--label-font-size) - 2px);
     font-weight: bold;
     font-family: 'Aptos BOLD';
     text-transform: uppercase;

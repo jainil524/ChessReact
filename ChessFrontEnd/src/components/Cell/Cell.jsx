@@ -2,7 +2,7 @@ import React from 'react';
 import '../../css/Cell.css';
 
 function Cell({ children, loc, setSelectedPiece, setDestinationCell, gameState }) {
-
+  console.log('Cell rendered');
   const handleClick = (target) => {
 
     // Check if the target is a cell or a piece
