@@ -10,14 +10,11 @@ const { v4: uuidv4 } = require('uuid');
 // const dbConnect = require('./DBConnect');
 const server = require('http').Server(app);
 
-app.use(cors({
-    origin: "*",
-}));
+app.use(cors());
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
+        origin: "*"
     }
 });
 
