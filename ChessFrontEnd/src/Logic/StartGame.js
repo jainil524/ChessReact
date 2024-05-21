@@ -1,11 +1,13 @@
 import socketIOClient from 'socket.io-client';
-// import dotenv from "dotenv";
 
-// dotenv.config();
-// 
-// process.env.NODE_ENV = 'development';
-// Access environment variables after they have been loaded
-const socketURL = import.meta.env.VITE_SOCKET_URL;
+
+
+const envWeAreIn = import.meta.env.VITE_ENV;
+let socketURL = import.meta.env.VITE_DEVS_SOCKET_URL;
+if (envWeAreIn == 'PROD') {
+    socketURL = import.meta.env.VITE_PROD_SOCKET_URL;
+}
+
 
 // Establish WebSocket connection
 const io = socketIOClient(socketURL);
