@@ -3,7 +3,9 @@ import socketIOClient from 'socket.io-client';
 
 
 const envWeAreIn = import.meta.env.VITE_ENV;
-let socketURL = "https://chess-react-backend.vercel.app"
+// let socketURL = "https://chess-react-backend.vercel.app";
+// let socketURL = "http://192.168.190.166:3000";
+let socketURL = "http://localhost:3000";
 
 
 // Establish WebSocket connection
@@ -38,8 +40,8 @@ const FetchAllRooms = (setRooms) => {
     });
 };
 
-const CreateRoom = (userID) => {
-    io.emit('create-room', userID);
+const CreateRoom = (userID, username) => {
+    io.emit('create-room', userID, username);
     io.on('room-created', (roomId) => {
         console.log('Room created', roomId);
         window.localStorage.setItem('roomId', roomId);
@@ -48,13 +50,18 @@ const CreateRoom = (userID) => {
     });
 };
 
-const JoinRoom = (roomId, userID) => {
-    io.emit('join-room', roomId, userID);
+const JoinRoom = (roomId, userID, username) => {
+    io.emit('join-room', roomId, userID, username);
 
     io.on('joined-room', (roomId) => {
         console.log('Joined room', roomId);
         window.localStorage.setItem('roomId', roomId);
         window.localStorage.setItem("player", 1);
+        return true;
+    });
+
+    io.on('room-full', () => {
+        console.log('Room full');
         return true;
     });
 

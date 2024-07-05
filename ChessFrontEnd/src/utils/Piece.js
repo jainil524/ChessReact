@@ -15,12 +15,12 @@ import WhitePawn from '/Pieces/0_Pawn.svg';
 
 const pieces = [
     { piece: "1_elephant", Image: BlackElephant, position: 'a8' },
-    { piece: "1_cemal", Image: BlackCemal, position: 'b8' },
-    { piece: "1_horse", Image: BlackHorse, position: 'c8' },
-    { piece: "1_king", Image: BlackKing, position: 'd8' },
-    { piece: "1_queen", Image: BlackQueen, position: 'e8' },
-    { piece: "1_horse", Image: BlackHorse, position: 'f8' },
-    { piece: "1_cemal", Image: BlackCemal, position: 'g8' },
+    { piece: "1_horse", Image: BlackHorse, position: 'b8' },
+    { piece: "1_cemal", Image: BlackCemal, position: 'c8' },
+    { piece: "1_queen", Image: BlackQueen, position: 'd8' },
+    { piece: "1_king", Image: BlackKing, position: 'e8' },
+    { piece: "1_cemal", Image: BlackCemal, position: 'f8' },
+    { piece: "1_horse", Image: BlackHorse, position: 'g8' },
     { piece: "1_elephant", Image: BlackElephant, position: 'h8' },
     { piece: "1_pawn", Image: BlackPawn, position: 'a7' },
     { piece: "1_pawn", Image: BlackPawn, position: 'b7' },
@@ -31,12 +31,12 @@ const pieces = [
     { piece: "1_pawn", Image: BlackPawn, position: 'g7' },
     { piece: "1_pawn", Image: BlackPawn, position: 'h7' },
     { piece: "0_elephant", Image: WhiteElephant, position: 'a1' },
-    { piece: "0_cemal", Image: WhiteCemal, position: 'b1' },
-    { piece: "0_horse", Image: WhiteHorse, position: 'c1' },
-    { piece: "0_king", Image: WhiteKing, position: 'd1' },
-    { piece: "0_queen", Image: WhiteQueen, position: 'e1' },
-    { piece: "0_horse", Image: WhiteHorse, position: 'f1' },
-    { piece: "0_cemal", Image: WhiteCemal, position: 'g1' },
+    { piece: "0_horse", Image: WhiteHorse, position: 'b1' },
+    { piece: "0_cemal", Image: WhiteCemal, position: 'c1' },
+    { piece: "0_queen", Image: WhiteQueen, position: 'd1' },
+    { piece: "0_king", Image: WhiteKing, position: 'e1' },
+    { piece: "0_cemal", Image: WhiteCemal, position: 'f1' },
+    { piece: "0_horse", Image: WhiteHorse, position: 'g1' },
     { piece: "0_elephant", Image: WhiteElephant, position: 'h1' },
     { piece: "0_pawn", Image: WhitePawn, position: 'a2' },
     { piece: "0_pawn", Image: WhitePawn, position: 'b2' },
@@ -48,8 +48,11 @@ const pieces = [
     { piece: "0_pawn", Image: WhitePawn, position: 'h2' },
 ];
 
-export function makePiece({ piece, Image }){
-    return `<img src='${Image}' alt='${piece}' />`;
+export function makePiece({piece, Image}){
+    let img = document.createElement('img');
+    img.src = Image;
+    img.alt = piece;
+    return img.outerHTML;
 };
   
 export default pieces;

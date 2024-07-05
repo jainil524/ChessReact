@@ -1,10 +1,8 @@
 import React from 'react';
 import '../../css/Cell.css';
 
-function Cell({ children, loc, setSelectedPiece, setDestinationCell, gameState }) {
-  console.log('Cell rendered');
+function Cell({loc, setSelectedPiece, setDestinationCell, gameState }) {
   const handleClick = (target) => {
-
     // Check if the target is a cell or a piece
     if (target.classList.contains('Cell') === false) {
       target = target.closest('.Cell');
@@ -17,7 +15,6 @@ function Cell({ children, loc, setSelectedPiece, setDestinationCell, gameState }
 
     // Check if a piece is selected and the target cell is empty
     if (document.querySelector('.selected') === null && target.childElementCount === 0) {
-      console.log('No piece selected');
       return;
     }
 
@@ -49,7 +46,7 @@ function Cell({ children, loc, setSelectedPiece, setDestinationCell, gameState }
       data-loc={loc}
       data-label={loc.split('')[0]}
     >
-      {children}
+      
     </div>
   );
 }

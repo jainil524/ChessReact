@@ -2,7 +2,6 @@ import React from 'react'
 import { Outlet, Link } from 'react-router-dom'
 
 import GraphicsImage from "/Graphic_1.jpeg"
-import Header from '../components/Header/Header'
 
 import '../css/mainpage.css'
 
@@ -10,7 +9,6 @@ import '../css/mainpage.css'
 function Index() {
     return (
         <>
-            <Header />
             <main>
                 <section className="intro">
                     <div className="intro-text">

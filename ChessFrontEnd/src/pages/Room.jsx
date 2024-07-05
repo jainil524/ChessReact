@@ -8,11 +8,20 @@ const Room = () => {
     const [roomId, setRoomId] = useState('');
     const navigate = useNavigate();
 
+    const TakeUserName = () => {
+        let username = prompt("Please enter your User Name: ");
+        window.localStorage.setItem("userName", username);
+        return username;
+    }
+
     const handleCreateRoom = () => {
         // Logic to create a room
         console.log('Creating room');
         let userID = window.localStorage.getItem('userId');
-        CreateRoom(userID);
+
+        let userName = window.localStorage.getItem("username") != null? window.localStorage.getItem("username") :TakeUserName();
+        
+        CreateRoom(userID, userName);
         navigate('/board')
 
     };
@@ -22,7 +31,9 @@ const Room = () => {
         if (roomId.trim()) {
             console.log(`Joining room with ID: ${roomId}`);
             let userID = window.localStorage.getItem('userId');
-            JoinRoom(roomId, userID);
+            let userName = window.localStorage.getItem("username") != null? window.localStorage.getItem("username") :TakeUserName();
+
+            JoinRoom(roomId, userID, userName);
             navigate('/board');
         }
     };

@@ -13,7 +13,7 @@ const Header = () => {
                 </div>
                 <nav>
                     <ul className="nav-links">
-                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/home">Home</Link></li>
                         <li><Link to="/findroom">Find a Room</Link></li>
                         <li><Link to="/rooms">Create / Join Room</Link></li>
                         <li><Link to="/board">board</Link></li>

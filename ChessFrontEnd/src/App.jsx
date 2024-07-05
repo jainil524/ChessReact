@@ -10,7 +10,6 @@ function App() {
         <Routes>
           <Route path="/*" element={<IndexRoute />} />
         </Routes>
-        <Outlet />
       </BrowserRouter>
     </>
   )
