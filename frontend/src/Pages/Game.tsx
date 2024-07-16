@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { socket } from '../utils/socket';
-import ChessBoard from './ChessBoard';
-import GameControls from './GameControl';
+import ChessBoard from '../components/ChessScreen/ChessBoard';
 
 const Game = () => {
 
@@ -14,7 +13,7 @@ const Game = () => {
         socket.on('moveMade', (move) => {
             // Update board state with new move
             console.log('Move received:', move);
-        });
+        }); 
 
         return () => {
             socket.disconnect();
